@@ -1,0 +1,21 @@
+CREATE TABLE [dbo].[SF_AgencyGroup](
+	[Commission_Level__c] [numeric](5, 2) NULL,
+	[CreatedById] [nvarchar](18) NULL,
+	[CreatedDate] [datetime] NULL,
+	[CurrencyIsoCode] [nvarchar](3) NULL,
+	[Id] [nvarchar](18) NULL,
+	[IsDeleted] [bit] NULL,
+	[LastModifiedById] [nvarchar](18) NULL,
+	[LastModifiedDate] [datetime] NULL,
+	[LastReferencedDate] [datetime] NULL,
+	[LastViewedDate] [datetime] NULL,
+	[Name] [nvarchar](80) NULL,
+	[OwnerId] [nvarchar](18) NULL,
+	[Parent_Agency_Group__c] [nvarchar](18) NULL,
+	[Parent_Agency_Group_Name__c] [nvarchar](1300) NULL,
+	[Parent_Relationship_Start_Date__c] [date] NULL,
+	[Region__c] [nvarchar](max) NULL,
+	[SystemModstamp] [datetime] NULL,
+	[Temp_Is_Key_Account__c] [bit] NULL,
+	[TS_Group_ID__c] [numeric](18, 0) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
