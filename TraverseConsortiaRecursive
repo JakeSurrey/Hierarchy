@@ -1,0 +1,28 @@
+USE [SF_STAGING]
+GO
+/****** Object:  StoredProcedure [ROCKY\jchen].[TraverseConsortiaRecursive]    Script Date: 7/25/2019 1:41:35 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [ROCKY\jchen].[TraverseConsortiaRecursive]
+@parentID VARCHAR(50)
+AS
+   /* to change action on each vertex, change these lines */
+   DECLARE @Name VARCHAR(50)
+   SELECT @Name=(SELECT Name 
+                    FROM SF_AgencyGroup WHERE id=@parentID) 
+   PRINT str(@@NESTLEVEL)+','+SPACE(@@NESTLEVEL*10)+''+@Name
+   /* ****** */
+
+   DECLARE subconsortia CURSOR LOCAL FOR
+      SELECT id FROM SF_AgencyGroup WHERE Parent_Agency_Group__c=@parentID      
+
+   OPEN subconsortia
+      FETCH NEXT FROM subconsortia INTO @parentID
+      WHILE @@FETCH_STATUS=0 BEGIN
+         EXEC TraverseConsortiaRecursive @parentID
+         FETCH NEXT FROM subconsortia INTO @parentID
+      END
+   CLOSE subconsortia
+   DEALLOCATE subconsortia
