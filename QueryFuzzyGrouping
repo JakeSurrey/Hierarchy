@@ -1,0 +1,8 @@
+
+Select a._key_out as Group#, a._score as _SimilarityScore, a.Cust#, a.ID, a.Description, a.Address_One, 
+a.Address_Two, a.Address_Three, a.City, a.State, a.Zip from [Prelude].[Dev].[US_ShipToList_Fuzzy] a,
+(
+---Possible duplicates with same _key_out:
+select _key_out, count(*) as rn_count from [Prelude].[Dev].[US_ShipToList_Fuzzy]  group by _key_out having COUNT(*) > 1
+) b
+where a._key_out = b._key_out
