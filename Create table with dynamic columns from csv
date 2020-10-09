@@ -1,0 +1,20 @@
+SSIS flow: 
+1. load first line(header or column names) into a staging table;
+2. load csv file(skip first line) inot a Stging data table (with fixed column names)
+3. Create table dynamically in SSIS execute SQL task wtih variable SQL
+----drop table if exsits
+IF OBJECT_ID('dw.AptReportUS', 'U') IS NOT NULL 
+  DROP TABLE dw.AptReportUS; 
+
+
+
+
+//Bulk insert option, '\n' or '\r' won't work, use '0x0a', columns have to be nvarchar in target table:
+BULK INSERT Prelude.dw.tmp
+    FROM '\\10.1.1.25\swusa\SurgeData\ATPReport.csv'
+    WITH
+    (
+        FIRSTROW = 2,
+        FIELDTERMINATOR = ',',
+        ROWTERMINATOR = '0x0a'
+    )
