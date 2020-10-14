@@ -4,3 +4,5 @@
 [Calendar Dimension](https://github.com/JakeSurrey/T-SQL/blob/master/Calendar%20Dimension)
 
 [Query Fuzzy Grouping Output Table](https://github.com/JakeSurrey/T-SQL/blob/master/QueryFuzzyGrouping)
+
+[Load csv into table with dynamic columns]
