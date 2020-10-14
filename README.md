@@ -5,4 +5,4 @@
 
 [Query Fuzzy Grouping Output Table](https://github.com/JakeSurrey/T-SQL/blob/master/QueryFuzzyGrouping)
 
-[Load csv into table with dynamic columns] (https://github.com/JakeSurrey/T-SQL/blob/master/Create%20table%20with%20dynamic%20columns%20from%20csv)
+[Load csv into table with dynamic columns](https://github.com/JakeSurrey/T-SQL/blob/master/Create%20table%20with%20dynamic%20columns%20from%20csv)
