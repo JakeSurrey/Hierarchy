@@ -8,4 +8,4 @@
 [Load csv into table with dynamic columns](https://github.com/JakeSurrey/T-SQL/blob/master/Create%20table%20with%20dynamic%20columns%20from%20csv)
 
 
-[T-SQL incrementing counter based on change in a column value](https://stackoverflow.com/questions/29380595/t-sql-incrementing-counter-based-on-change-in-a-column-value)
+[T-SQL incrementing counter based on change in a column value(compare with previous records)](https://stackoverflow.com/questions/29380595/t-sql-incrementing-counter-based-on-change-in-a-column-value)
