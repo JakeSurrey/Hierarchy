@@ -1,0 +1,26 @@
+Insert into PIM.SKU_FilterValueNewSKU (PreludeProdNo, HierarchyLevel, GroupName, FilterName, FilterValue, Language, Country, InsertTimestamp)
+SELECT 
+PreludeProdNo, 
+'SubCategory' as HierarchyLevel,
+'Collision Repair Kits' as GroupName,
+'Extention Tubes Length (in.)' as FilterName,
+ltrim(rtrim(replace(value, '"',''))) as FilterValue, 
+--spec,
+--value,
+--webprodname,
+'EN' as Language,
+Country, 
+getdate() as InsertTimestamp
+FROM (select preludeprodno, spec, country, value as FilterValue from PIM.SKU_TechSpec) a
+cross apply string_split(FilterValue, '/')
+WHERE  
+ a.PreludeProdNo in
+(select distinct PreludeProdNo from pim.SKU_Hierarchy where SubCategory  = 'Collision Repair Kits' and flag is not null )
+and ( a.spec like '%Extention%' )
+;
+
+1, '2.3/2.4/2.5/2.6' will transformed to 
+1, 2.3
+1, 2.4
+1, 2.5
+1, 2.6
