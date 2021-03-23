@@ -10,4 +10,4 @@
 
 [T-SQL incrementing counter based on change in a column value(compare with previous records)](https://stackoverflow.com/questions/29380595/t-sql-incrementing-counter-based-on-change-in-a-column-value)
 
-[String_Split and Cross Apply to pivot string into mulitple records]
+[String_Split and Cross Apply to pivot string into mulitple records](https://github.com/JakeSurrey/T-SQL/blob/master/String_Split)
